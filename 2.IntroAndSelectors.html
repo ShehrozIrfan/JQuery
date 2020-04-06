@@ -1,0 +1,191 @@
+<!-- 
+   In this lecture we will learn about selectors in JQUERY.
+   jQuery selectors allow you to select and manipulate HTML 
+   element(s).
+
+jQuery selectors are used to "find" (or select) HTML elements 
+based on their name, id, classes, types, attributes, values of 
+attributes and much more. It's based on the existing CSS 
+Selectors, and in addition, it has some own custom selectors.
+
+All selectors in jQuery start with the dollar sign and 
+parentheses: $().
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY Crash Course | Selectors</title>
+   </head>
+   
+   <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+
+   <style>
+       body{
+           font-size:17px;
+           font-family:arial;
+           background: #f4f4f4;
+           line-height:1.5em;
+       }
+       header{
+           background:#333;
+           color:#fff;
+           padding:20px;
+           text-align:center;
+           border-bottom: 4px #000 solid;
+           margin-bottom: 10px;
+       }
+       #container{
+           width:50%;
+           margin:auto;
+           padding:10px;
+       }
+   </style>
+<body>
+    <header>
+        <h1>JQUERY Crash Course</h1>
+    </header>
+
+    <!-- We will apply jquery on id -->
+    <div id="container">
+         <h1 id="heading1">
+             Heading One
+         </h1>
+         <p id="para1">
+            Lorem ipsum dolor sit amet, 
+            consectetur adipiscing elit, 
+            sed do eiusmod tempor 
+            incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim
+            niam, quis nostrud exercitation 
+            ullamco laboris nisi ut aliquip 
+            x ea commodo consequat.<span> Duis 
+            aute irure dolor in </span>reprehenderit
+            in voluptate velit esse cillum 
+            dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat 
+            cupidatat non proident, sunt in 
+            a qui officia deserunt mollit anim id
+            est laborum.
+         </p>
+         <!-- We will apply jquery on class -->
+         <h1 class="heading2">
+            Heading Two
+        </h1>
+        <p class="para2">
+           Lorem ipsum dolor sit amet, 
+           consectetur adipiscing elit, 
+           sed do eiusmod tempor 
+           incididunt ut labore et dolore
+           magna aliqua. Ut enim ad minim
+           niam, quis nostrud exercitation 
+           ullamco laboris nisi ut aliquip 
+           x ea commodo consequat.<span> Duis 
+           aute irure dolor in </span>reprehenderit
+           in voluptate velit esse cillum 
+           dolore eu fugiat nulla pariatur.
+           Excepteur sint occaecat 
+           cupidatat non proident, sunt in 
+           a qui officia deserunt mollit anim id
+           est laborum.
+        </p>
+        <!-- We will apply jquery on element -->
+        <span> Duis 
+            aute irure dolor in </span>
+ 
+        <!-- We will apply jquery on list element -->    
+    <ul id='list'>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+        <li>List Item 6</li>
+        <li>List Item 7</li>
+        <li>List Item 8</li>
+    </ul>       
+    
+    <!-- We will apply jquery on input types -->
+    <input type="button" value="button1">
+    <input type="submit" value="submit">
+    <input type='text'>
+
+
+    <!-- We will apply jquery on attributes -->
+    <a href="https://google.com">Google</a>
+    <a href="https://yahoo.com">Yahoo</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    </div>
+
+    <script>
+
+        /*
+        ELEMENT SELECTOR
+        - The jQuery element selector selects elements based on the element name
+        */
+     //it will hide all the h1 headings
+    // $('h1').hide();   
+     
+
+    /*
+    #id SELECTOR
+    - The jQuery #id selector uses the id attribute of an HTML tag to find the specific element.
+
+    An id should be unique within a page, so you should use the #id selector when you want to find a single, unique element.
+
+    To find an element with a specific id, write a hash character, followed by the id of the HTML element
+    */
+     //if we want to hide a specific heading we will use the id
+     //$('h1#heading1').hide();
+     
+    /*
+    .class SELECTOR
+    - The jQuery .class selector finds elements with a specific class.
+
+    To find elements with a specific class, write a period character, followed by the name of the class
+    */
+   
+
+     //we can also hide using the class 
+     //$('h1.heading2').hide();
+
+    //now we want to apply some style on span that is inside p
+   // $('p span').css('color','red');
+
+    //if we want to apply style to span that is outside p and
+    //it will also be applied to all the spans.
+   // $('span').css('color','green');
+
+   //if we want to apply style on first list item
+  // $('ul#list li:first').css('color','red');
+   //if we want to apply style on last list item
+  // $('ul#list li:last').css('color','green');
+   //if we want to target the even elements
+ //  $('ul#list li:even').css('background-color','hotpink');
+   //if we want to target the odd elements
+ //  $('ul#list li:odd').css('background-color','#cccccc');
+   //if we want to target the every third element
+  // $('ul#list li:nth-child(3n)').css('list-style','none');
+
+   //if we want to hide the button type
+   //$(':button').hide();
+   //if we want to hide the submit type
+   //$(':submit').hide();
+   //if we want to hide the text type
+   //$(':text').hide();
+
+   //we can also target the attributes
+   // $('[href]').css('color','red');
+   //if we just want to target a specific attribute
+   $('a[href="https://yahoo.com"]').css('color','green');
+
+   
+   //if we want to hide everything then we have '*'
+  // $('*').hide();
+
+    </script>
+</body>
+</html>
