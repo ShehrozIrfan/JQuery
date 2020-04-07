@@ -1,0 +1,215 @@
+<!-- 
+In this lecture we will learn about mouseover events and console log.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY Crash Course | Selectors</title>
+   
+
+    <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    
+    
+    <!--
+    <script>
+        
+    //document means all whole document. and ready means whenever our whole document is ready then implement the function . If we don't write document.ready then our script inside head will not work because it starts grabbing the id inside the function before the document is loaded.
+        $(document).ready(function(){
+    
+             $('#btn1').click(function(){
+               
+                alert('Button Clicked!');
+                
+            });
+       
+    
+    });
+        
+        </script>
+         --> 
+    
+    <style>
+    
+        body{
+           font-size:17px;
+           font-family:arial;
+           background: #f4f4f4;
+           line-height:1.5em;
+       }
+        
+       header{
+           background:#333;
+           color:#fff;
+           padding:20px;
+           text-align:center;
+           border-bottom: 4px #000 solid;
+           margin-bottom: 10px;
+       }
+       #container{
+           width:50%;
+           margin:auto;
+           padding:10px;
+       }
+    </style>
+    </head> 
+    <body>
+    
+        
+        <header>
+        
+            <h1>JQuery Crash Course</h1>
+        
+        </header>
+        <div id="container">
+        
+<!-- ========================= 1.First we take start from mouse events ======================== -->
+            <h3>Mouse Events</h3>
+            <button id="btn1" class="btnClass">Button 1</button>
+            <button id="btn2">Button 2</button>
+            
+            <p class="para1">jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax. It is free, open-source software using the permissive MIT License. As of May 2019, jQuery is used by 73% of the 10 million most popular websites. Web analysis indicates that it is the most widely deployed JavaScript library by a large margin, having 3 to 4 times more usage than any other JavaScript library</p>
+        
+            
+            <h1 id="coords"></h1>
+            
+        </div>
+        
+        
+        <script>
+
+            
+        $(document).ready(function(){
+    
+            //1- if we want to add onclick function to button 1
+            /*
+            $('#btn1').click(function(){
+               
+                alert('Button Clicked!');
+                
+            });
+            */
+            //2- behind the scenes this click function happens as 'on' lets see how:
+            /*
+            $('#btn1').on('click',function(){
+                alert('Button Clicked!');
+            });
+            */
+            //3- Now what we want is that whenever user clicks on button 1 it hides the para1 and when clicks on button 2 it shows the paragraph.
+            //hiding the paragraph
+            /*
+            $('#btn1').on('click',function(){
+               $('.para1').hide(); 
+            });
+            //showing the paragraph
+            $('#btn2').on('click',function(){
+               $('.para1').show(); 
+            });
+            */
+            //4- If we want button 1 to do both the jobs show and hide the paragraph we can do this by toggle
+            /*
+            $('#btn1').on('click',function(){
+                $('.para1').toggle();
+            });
+            */
+            //5- If we want button 1 to toggle on double click 
+            /*
+            $('#btn1').dblclick(function(){
+               $('.para1').toggle(); 
+            });
+            */
+            //6- If we want to toggle para1 on hover button 1.
+            //Note: hover is not a real event it is just a shorthand for other events like mouse enter and mouse leave
+            /*
+            $('#btn1').hover(function(){
+               $('.para1').toggle(); 
+            });
+            */
+            //so if we write hover like this it will not work because it is not a real event.
+            /*
+            $('#btn1').on('hover',function(){
+               $('.para1').toggle(); 
+            });
+            */
+            //7- if we want para1 to hide on mouse enter and show on mouse leave we can do this by using mouseenter() and mouseleave() events.
+            /*
+            $('#btn1').on('mouseenter',function(){
+                $('.para1').toggle();
+            });
+            $('#btn1').on('mouseleave',function(){
+               $('.para1').toggle(); 
+            });
+            */
+            //8- we also have mouse move event.
+            /*
+            $('#btn1').on('mousemove',function(){
+               $('.para1').toggle(); 
+            });
+            */
+            //9- we also have mouse down and mouse up events.
+            //when you click on left click and hold it then the para1 disappers
+            /*
+            $('#btn1').on('mousedown',function(){
+                $('.para1').toggle();
+            });
+            //if you leave the click then the para1 appears
+            $('#btn1').on('mouseup',function(){
+               $('.para1').toggle(); 
+            });
+            */
+            //so above are all the mouse events.
+            
+            //=================================================================================
+            //            We can also pass an optional parameter for the event
+            //=================================================================================
+            //click F12 on your browser then go to console and see.
+            /*
+            $('#btn1').click(function(e){
+                console.log(e);
+            });
+            */
+            /*
+            $('#btn1').click(function(e){
+                //if we want to get the id of button 1
+                //alert(e.currentTarget.id);
+                
+                //if we want to get the innerHTML of button 1
+                //alert(e.currentTarget.innerHTML);
+                
+                //if we want to get the outerHTML of button 1
+                //alert(e.currentTarget.outerHTML);
+                
+                //if we want to get the className of button 1
+                alert(e.currentTarget.className);
+            });
+            
+            */
+            //let's see something cool that we can do with mousemove
+            //it will actually gives us coordinates whenever we move on button1
+            /*
+            $('#btn1').on('mousemove',function(e){
+                console.log('Coords: Y: '+e.clientY+' X: '+e.clientX);
+            });
+            */
+            //it will gives us coordinates on whole body movement
+            /*
+            $(document).on('mousemove',function(e){
+                console.log('Coords: Y: '+e.clientY+' X: '+e.clientX);
+            });
+            */
+            //it will give us coordinates on browser
+            $(document).on('mousemove',function(e){
+               $('#coords').html('Coords: Y: '+e.clientY+' X: '+e.clientX); 
+            });
+    });
+        
+        
+        </script>
+        
+        
+    </body>
+</html>    
+        
