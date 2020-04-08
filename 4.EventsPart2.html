@@ -1,0 +1,161 @@
+<!-- 
+In this lecture we will learn about form events.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY Crash Course | Selectors</title>
+   
+
+    <!-- Link of JQuery File -->
+   <script src="jquery-3.4.1.min.js"></script>
+    
+    
+    
+    <style>
+    
+        body{
+           font-size:17px;
+           font-family:arial;
+           background: #f4f4f4;
+           line-height:1.5em;
+       }
+        
+       header{
+           background:#333;
+           color:#fff;
+           padding:20px;
+           text-align:center;
+           border-bottom: 4px #000 solid;
+           margin-bottom: 10px;
+       }
+       #container{
+           width:50%;
+           margin:auto;
+           padding:10px;
+       }
+    </style>
+    </head> 
+    <body>
+    
+        
+        <header>
+        
+            <h1>JQuery Crash Course</h1>
+        
+        </header>
+        <div id="container">
+        
+            <h1>Form Events</h1>
+            <!-- Let's create a simple form -->
+            <form id="form">
+            
+                <label for="name">Name</label><br/>
+                <input type="text" id="name" name="name">
+                <br/>
+                
+                <label for="email">Email</label> <br/>
+                <input type="email" id="email" name="email">
+                <br/>
+                
+                <label for="gender">Gender</label><br/>
+                <select name='gender' id="gender">
+                
+                    <option>Male</option>
+                    <option>Female</option>
+                    
+                </select>
+                <br/>
+                
+                <input type="submit" value="submit">
+            
+            </form>
+  
+        </div>
+        
+        
+        <script>
+
+            
+        $(document).ready(function(){
+         
+            //1- foucs event is what whenever page is loaded the input fields are focused.
+            
+           /* $('input').focus(function(){
+                
+               //this will only be applied to name text field.
+                $('input#name').css('background-color','pink');
+                
+                
+            });
+            */
+           
+           /* $('input').focus(function(){
+                //so the best case is to used 'this'.
+               $(this).css('background-color','pink');  
+            });
+            */
+              //so if we click on outside the input field it should turn white(the color of input field)
+                //we can do this with 'blur' which is the opposite of focus.
+           /* $('input').blur(function(){
+                $(this).css('background-color','white');
+            });
+            */
+            
+            //key up event[it tells how many times we press keyboard keys]
+           /* $('input').keyup(function(){
+                console.log('keyup');
+            });
+           */
+            //if we want to get the value on console
+            
+           /* $('input').keyup(function(e){
+                console.log(e.target.value);
+            });
+          */
+            
+            //so if we want whenever user selects any value from drop down list a message should be shown to him.
+            
+           /* $('select#gender').change(function(){
+                alert('Changed');
+            });
+            */
+            //we can also get that value.
+           /* $('select#gender').change(function(e){
+                alert(e.target.value);
+            });
+            */
+            //submit event-it triggers when a form is submitted.
+            $('#form').submit(function(){
+               alert('form Submitted!!!'); 
+            });
+           /* $('#form').submit(function(){
+               console.log('Submitted'); 
+            });
+            */
+            //if we want to stop the form from submitting
+           /* $('#form').submit(function(e){
+                e.preventDefault();
+                console.log('Submitted');
+            });
+            */
+            //if we want to show the value of name.
+            $('#form').submit(function(e){
+               e.preventDefault();
+                
+               var name = $('input#name').val();
+                
+                console.log(name);
+            });
+    });
+        
+        
+        </script>
+        
+        
+    </body>
+</html>    
+        
